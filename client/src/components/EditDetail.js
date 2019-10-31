@@ -80,7 +80,7 @@ class EditAttribute extends Component {
           <div style={{ width: '100%' }}>
             <h2>Edit Profile</h2>
             {/* <div className="alert-style">{alertMsg}</div> */}
-            <Input  label="Weight(kg)" type="text" value={weight} name="weight" handleChange={this.getValue} />
+            <Input  label="Weight(kg)" placeHolder="5okg" type="text" value={weight} name="weight" handleChange={this.getValue} />
             <Input placeHolder="5Inch" label="Height(Inch)" type="email" value={height} name="height" handleChange={this.getValue} />
             <Input placeHolder="Black" label="Hair Colour" type="text" value={hair_colour} name="hair_colour" handleChange={this.getValue} />
           </div>

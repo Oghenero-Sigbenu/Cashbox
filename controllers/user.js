@@ -57,6 +57,7 @@ exports.getUserById = (req, res, next) => {
 		}
 	})
 		.then(user => {
+			console.log(user)
 			res.status(200).json({ msg: "User found successfully", data: user })
 		})
 		.catch(err => {

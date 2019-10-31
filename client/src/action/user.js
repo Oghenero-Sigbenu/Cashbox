@@ -103,12 +103,13 @@ export const getUserByName = (name) => {
 
 export const getUserById = (id) => {
 	return (dispatch) => {
-		axios.get(`/user/${id}`)
+		axios.get(`/user/one/${id}`)
 			.then(res => {
 				dispatch({
 					type: GET_USER_BY_Id,
 					payload: res.data.data
 				});
+				console.log(res.data)
 			})
 			.catch(err => {
 				dispatch(failed(err.msg))

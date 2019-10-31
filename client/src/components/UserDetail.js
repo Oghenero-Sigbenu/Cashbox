@@ -9,6 +9,7 @@ import {  getUserAttribute, addAttribute, deleteAttribute } from '../action/attr
 //components
 import Modal from "./common/Modal";
 import Input from "./common/Input";
+import Spinner from "./common/Spinner";
 
 class UserDetail extends Component {
 	constructor(props) {
@@ -67,7 +68,6 @@ class UserDetail extends Component {
 
 	delete = () => {
 		const id = +this.props.match.params.id;
-
 		const userId = id;
 		console.log(userId )
 		this.props.deleteAttribute(userId)
@@ -84,8 +84,11 @@ class UserDetail extends Component {
 	render() {
 		const { user, userAttribute, isLoading} = this.props;
 		const { isShowing } = this.state;
+		console.log(user)
 		return (
 			<div className="Container">
+				{isLoading ? <Spinner/> :
+				<>
 				<h2>User Biodata</h2>
 				<div className="detail">
 				<span><h4>First Name:</h4>{user && user.first_name}</span>
@@ -95,12 +98,13 @@ class UserDetail extends Component {
 				</div>
 				<div className="atribute">
 					<h3>Attriutes</h3>
+				{isLoading ? <Spinner/> :
 				<div className="attributes">
 					<span><h4>Height:</h4>{userAttribute && userAttribute.height}</span>
 					<span><h4>Weight:</h4>{userAttribute && userAttribute.weight}</span>
 					<span><h4>Hair Color:</h4>{userAttribute && userAttribute.hair_colour}</span>
 				</div>
-
+				  }
 				</div>
 				<div className="btn">
 				<NavLink to={`/edit/${userAttribute && userAttribute.userId}`}><button>Edit</button></NavLink>
@@ -115,6 +119,8 @@ class UserDetail extends Component {
 						<button onClick={this.submit}>Add</button>
 					</div>
 				</Modal>
+				</>
+				}
 			</div>
 		)
 	}
@@ -123,11 +129,11 @@ class UserDetail extends Component {
 
 const mapStateToProps = (state) => {
 	const { isLoading, user,  } = state.User;
-	const {  userAttribute } = state.Attributes;
+	const {  userAttribute, isCreated } = state.Attributes;
 	return {
 		isLoading,
 		user,
-		userAttribute
+		userAttribute,isCreated 
 	}
 };
 

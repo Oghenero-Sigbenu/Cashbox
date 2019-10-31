@@ -101,7 +101,7 @@ class Home extends Component {
 			<div>
 				<div>
 					<div><h2>Biodata</h2></div>
-					<div><Input name="name" handleChange={this.getValue}/><button onClick={this.search}>Search</button></div>
+					<div className="search"><input name="name" onChange={this.getValue}/><button className="search-btn" onClick={this.search}>Search</button></div>
 				</div>
 				{isFound ? 
 				<div>

@@ -33,6 +33,8 @@
   height: 50px;
   border: none;
   border-radius: 0;
+  margin:0 !important;
+  min-width: 40px;
 }
 
 .display-block {
