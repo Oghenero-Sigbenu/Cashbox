@@ -19,18 +19,6 @@ User.init({
     age: {
         type: Sequelize.INTEGER,
         allowNull: false
-    },
-    height: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-    },
-    hair_colour: {
-        type: Sequelize.STRING,
-        allowNull: true
-    },
-    weight: {
-        type: Sequelize.INTEGER,
-        allowNull: true
     }
 }, {
     sequelize,

@@ -1,12 +1,12 @@
 const User = require("../model/User");
 
 exports.addUser = (req, res, next) => {
-	const { first_name, surname, DOB, age, height, hair_colour, weight } = req.body;
+	const { first_name, surname, DOB, age } = req.body;
 	if (!first_name || !surname || !DOB || !age) {
 		return res.status(500).json({ msg: "All fields are required" })
 	}
 	User.create({
-		first_name, surname, DOB, age, height, hair_colour, weight
+		first_name, surname, DOB, age
 	})
 		.then(user => {
 			res.status(200).json({ msg: "User created successfully", data: user })

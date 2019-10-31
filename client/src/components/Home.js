@@ -119,7 +119,7 @@ class Home extends Component {
 									<td>{oneUser.surname}</td>
 									<td>{oneUser.DOB}</td>
 									<td>{oneUser.age}</td>
-									<td><button onClick={() => this.navigate(`/detail/${oneUser.id}`)}>Add attributes</button></td>
+									<td><button onClick={() => this.navigate(`/detail/${oneUser.id}`)}>View Details</button></td>
 				<Modal show={isShowing} handleClose={this.closeModal} open={this.openModal}>
 					<div>
 						<Input label="Height(Inch):" placeHolder="5.5" name="height" handleChange={this.getValue}/>
@@ -150,7 +150,7 @@ class Home extends Component {
 									<td>{user.surname}</td>
 									<td>{user.DOB}</td>
 									<td>{user.age}</td>
-									<td><button onClick={() => this.navigate(`/detail/${user.id}`)}>Add attributes</button></td>
+									<td><button onClick={() => this.navigate(`/detail/${user.id}`)}>View Details</button></td>
 				<Modal show={isShowing} handleClose={this.closeModal} open={this.openModal}>
 					<div>
 						<Input label="Height(Inch):" placeHolder="5.5" name="height" handleChange={this.getValue}/>
