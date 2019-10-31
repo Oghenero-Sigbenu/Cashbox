@@ -1,0 +1,15 @@
+# ignore node_modules folder
+node_modules/
+client/node_modules/
+
+# Ignore file named '.env'
+.env
+
+# ignore uploads folder
+uploads/
+
+.DS_Store
+client/yarn.lock
+yarn.lock
+client/package-lock.json
+package-lock.json
