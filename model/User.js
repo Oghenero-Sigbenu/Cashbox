@@ -13,7 +13,7 @@ User.init({
         allowNull: false
     },
     DOB: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false
     },
     age: {
