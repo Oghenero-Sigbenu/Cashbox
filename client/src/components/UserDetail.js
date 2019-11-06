@@ -58,6 +58,9 @@ class UserDetail extends Component {
 		this.props.addAttribute(
 			{ weight, height, hair_colour, userId}
 		)
+		this.setState({
+			isShowing: false
+		})
 	};
 
 	openModal = () => {
@@ -82,14 +85,14 @@ class UserDetail extends Component {
 	
 
 	render() {
-		const { user, userAttribute, isLoading} = this.props;
+		const { user, userAttribute, isLoading,isCreated } = this.props;
 		const { isShowing } = this.state;
-		console.log(user)
+		console.log(user,isCreated ,)
 		return (
 			<div className="Container">
 				{isLoading ? <Spinner/> :
 				<>
-				<h2>User Biodata</h2>
+				<NavLink to="/"><h2>User Biodata</h2></NavLink>
 				<div className="detail">
 				<span><h4>First Name:</h4>{user && user.first_name}</span>
 				<span><h4>Surname:</h4>{user && user.surname}</span>
@@ -109,7 +112,7 @@ class UserDetail extends Component {
 				<div className="btn">
 				<NavLink to={`/edit/${userAttribute && userAttribute.userId}`}><button>Edit</button></NavLink>
 				<button onClick={this.delete}>Delete</button>
-				<button onClick={this.openModal}>Add attributes</button>
+				{userAttribute ? "" :  <button onClick={this.openModal}>Add attributes</button>}
 				</div>
 				<Modal show={isShowing} handleClose={this.closeModal} open={this.openModal}>
 					<div>

@@ -1,12 +1,16 @@
 const User = require("../model/User");
+const moment = require("moment");
+
+ 
 
 exports.addUser = (req, res, next) => {
 	const { first_name, surname, DOB, age } = req.body;
-	if (!first_name || !surname || !DOB || !age) {
+	if (!first_name || !surname || !DOB) {
 		return res.status(500).json({ msg: "All fields are required" })
 	}
+	var calculatedAge = moment().diff(DOB, 'years',false);
 	User.create({
-		first_name, surname, DOB, age
+		first_name, surname, DOB, age:calculatedAge
 	})
 		.then(user => {
 			res.status(200).json({ msg: "User created successfully", data: user })
@@ -32,7 +36,6 @@ exports.getAllUsers = (req, res, next) => {
 
 exports.getUserByName = (req, res, next) => {
 	const name = req.params.name;
-	// const { surname, first_name } = req.body;
 	User.findOne({
 		where: {
 			surname: name

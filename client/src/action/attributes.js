@@ -34,7 +34,6 @@ export const addAttribute = (userData) => {
 			})
 			.catch(err => {
 				dispatch(failed(err.msg))
-				console.log(err.response.data.msg)
 			})
 	}
 };
